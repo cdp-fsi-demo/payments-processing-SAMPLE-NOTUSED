@@ -8,7 +8,7 @@ Enable all Controller Services
 
 
 Schema Registry 
-
+```json
 Schema Name: Transaction2
 
 {
@@ -44,10 +44,12 @@ Schema Name: Transaction2
   }
  ]
 }
+```
 
 Impala Setup
 Create transactions table to query transactions in real time as they land in Kudu
 
+```sql
 CREATE TABLE transactions
 (
  timestamp_ms BIGINT,
@@ -60,6 +62,7 @@ CREATE TABLE transactions
 PARTITION BY HASH PARTITIONS 16
 STORED AS KUDU
 TBLPROPERTIES ('kudu.num_tablet_replicas' = '1');
+```
 
 Kafka Topic Creation:
 
